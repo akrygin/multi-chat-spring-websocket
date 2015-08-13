@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+       <!--Beans for DI-->
+       <bean name="chatChannelsModel" class="com.alex.chat.model.MockChatChannelsModel"/>
+
+       <bean name="chatService" class="com.alex.chat.service.ChatServiceImpl">
+              <property name="chatChannelsModel" ref="chatChannelsModel" />
+       </bean>
+
+       <bean name="chatController" class="com.alex.chat.controller.ChatController">
+              <property name="chatService" ref="chatService" />
+       </bean>
+</beans>

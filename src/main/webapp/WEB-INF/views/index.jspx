@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div id="main"
+     xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     version="2.1"
+     xmlns:spring="http://www.springframework.org/tags">
+
+    <jsp:output omit-xml-declaration="yes"/>
+    <spring:message code="button.text" var="button_text"/>
+    <spring:message code="label.mainform.header" var="header_text"/>
+    <spring:message code="label.mainform.disconnectchannelbutton" var="disconnect_channel_button"/>
+    <spring:message code="label.mainform.messageinput.placeholder" var="messageinput_placeholder"/>
+    <spring:message code="label.mainform.sendmessagebutton" var="send_message_button"/>
+
+    <h1>${header_text}</h1>
+
+    <c:if test="${not empty channels}">
+        <select id="channels_list" title="Channels">
+            <c:forEach items="${channels}" var="channel">
+                <option value="${channel.id}" >${channel.name}</option>
+            </c:forEach>
+        </select>
+    </c:if>
+    <input type="submit" id="disconnect_button" value='${disconnect_channel_button}'/>
+    <!--<label id="conn_text"/>-->
+    <br/>
+    <input type="text" id="input_text" placeholder='${messageinput_placeholder}'/>
+    <input type="submit" id="send_message_button" value='${send_message_button}'/>
+    <!--TODO Need to change this idiotic hardcode to normal code-->
+    <div id="messages_txt">___________________________________________________________________</div>
+
+</div>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div id="footer" xmlns:jsp="http://java.sun.com/JSP/Page">
+
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <div>
+        Language: <a href="?lang=en">English</a>|<a href="?lang=ru_RU">Russian</a>
+    </div>
+
+</div>

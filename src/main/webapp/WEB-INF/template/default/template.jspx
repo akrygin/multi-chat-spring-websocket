@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<html xmlns:jsp="http://java.sun.com/JSP/Page"
+      xmlns:spring="http://www.springframework.org/tags"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:tiles="http://tiles.apache.org/tags-tiles"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+
+<jsp:output doctype-root-element="HTML" doctype-system="about:legacy-compact" />
+
+<jsp:directive.page contentType="text/html"/>
+<jsp:directive.page pageEncoding="UTF-8" />
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <!--JavaScripts-->
+    <spring:url value="resources/scripts/default-scripts/sockjs.min.js"         var="socks_url"/>
+    <spring:url value="resources/scripts/default-scripts/stomp.min.js"          var="stomp_url"/>
+    <spring:url value="resources/scripts/default-scripts/dateFormat.js"         var="dateFormat_url"/>
+    <spring:url value="resources/scripts/default-scripts/jquery.dateFormat.js"  var="jquery_dateFormat_url"/>
+    <spring:url value="resources/scripts/default-scripts/jquery-1.11.3.min.js"  var="jquery_url"/>
+    <spring:url value="resources/scripts/chat-controller.js"                    var="chat_controller_url"/>
+    <script type="text/javascript" src="${socks_url}"><jsp:text/></script>
+    <script type="text/javascript" src="${stomp_url}"><jsp:text/></script>
+    <script type="text/javascript" src="${jquery_url}"><jsp:text/></script>
+    <script type="text/javascript" src="${dateFormat_url}"><jsp:text/></script>
+    <script type="text/javascript" src="${jquery_dateFormat_url}"><jsp:text/></script>
+    <script type="text/javascript" src="${chat_controller_url}"><jsp:text/></script>
+
+    <!--Theme-->
+    <spring:theme code="styleSheet" var="app_css" />
+    <spring:url value="/${app_css}" var="app_css_url" />
+    <link rel="stylesheet" type="text/css" media="screen" href="${app_css_url}"/>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" />
+
+    <c:set var="userLocale">
+        <c:set var="plocale">${pageContext.response.locale}</c:set>
+        <c:out value="${fn:replace(plocale, '_', '-')}" default="en" />
+    </c:set>
+</head>
+<body>
+    <div id="headerWrapper">
+        <tiles:insertAttribute name="header" ignore="true" />
+    </div>
+    <div id="mainWrapper">
+        <tiles:insertAttribute name="body" />
+    </div>
+    <div id="footerWrapper">
+        <tiles:insertAttribute name="footer" ignore="true" />
+    </div>
+</body>
+</html>
+
