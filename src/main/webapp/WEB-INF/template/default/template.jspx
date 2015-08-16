@@ -19,19 +19,23 @@
     <spring:url value="resources/scripts/default-scripts/dateFormat.js"         var="dateFormat_url"/>
     <spring:url value="resources/scripts/default-scripts/jquery.dateFormat.js"  var="jquery_dateFormat_url"/>
     <spring:url value="resources/scripts/default-scripts/jquery-1.11.3.min.js"  var="jquery_url"/>
+    <spring:url value="resources/scripts/default-scripts/jquery-ui.js"          var="jquery_ui_url"/>
     <spring:url value="resources/scripts/chat-controller.js"                    var="chat_controller_url"/>
+    <spring:url value="resources/scripts/multi-chat-controller.js"              var="multi_chat_controller_url"/>
     <script type="text/javascript" src="${socks_url}"><jsp:text/></script>
     <script type="text/javascript" src="${stomp_url}"><jsp:text/></script>
     <script type="text/javascript" src="${jquery_url}"><jsp:text/></script>
+    <script type="text/javascript" src="${jquery_ui_url}"><jsp:text/></script>
     <script type="text/javascript" src="${dateFormat_url}"><jsp:text/></script>
     <script type="text/javascript" src="${jquery_dateFormat_url}"><jsp:text/></script>
     <script type="text/javascript" src="${chat_controller_url}"><jsp:text/></script>
+    <script type="text/javascript" src="${multi_chat_controller_url}"><jsp:text/></script>
 
     <!--Theme-->
     <spring:theme code="styleSheet" var="app_css" />
     <spring:url value="/${app_css}" var="app_css_url" />
     <link rel="stylesheet" type="text/css" media="screen" href="${app_css_url}"/>
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" />
+    <!--<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" />-->
 
     <c:set var="userLocale">
         <c:set var="plocale">${pageContext.response.locale}</c:set>
@@ -45,6 +49,9 @@
     <div id="mainWrapper">
         <tiles:insertAttribute name="body" />
     </div>
+    <!--<div id="main2Wrapper">-->
+        <!--<tiles:insertAttribute name="body-2" />-->
+    <!--</div>-->
     <div id="footerWrapper">
         <tiles:insertAttribute name="footer" ignore="true" />
     </div>

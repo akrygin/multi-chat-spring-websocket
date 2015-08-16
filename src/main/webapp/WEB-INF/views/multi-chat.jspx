@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div id="multi-chat"
+     xmlns:jsp="http://java.sun.com/JSP/Page"
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     version="2.1"
+     xmlns:spring="http://www.springframework.org/tags">
+
+    <jsp:output omit-xml-declaration="yes"/>
+    <spring:message code="label.mainform.messageinput.placeholder" var="messageinput_placeholder"/>
+    <spring:message code="label.mainform.sendmessagebutton" var="send_message_button"/>
+
+    <div id="dialog" title="Tab data">
+        <form>
+            <fieldset class="ui-helper-reset">
+                <label for="tab_title">Chat chanel</label>
+                <input type="text" name="tab_title" id="tab_title" value="Channel Title"
+                       class="ui-widget-content ui-corner-all"/>
+                <label for="tab_content">Content</label>
+                <textarea name="tab_content" id="tab_content"
+                          class="ui-widget-content ui-corner-all">Chat content</textarea>
+            </fieldset>
+        </form>
+    </div>
+
+    <button id="create_connection">Connect</button>
+
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Main Chat</a></li>
+            <li><a href="#tabs-2">Guild Chat</a></li>
+            <li><a href="#tabs-3">Whisper Chat</a></li>
+        </ul>
+        <div id="tabs-1" channel_type="main">
+            <c:if test="${not empty channels}">
+                <select id="channels_list" title="Channels">
+                    <c:forEach items="${channels}" var="channel">
+                        <option value="${channel.id}" >${channel.name}</option>
+                    </c:forEach>
+                </select>
+            </c:if>
+            <input type="text" id="input_text_main" placeholder='${messageinput_placeholder}'/>
+            <input type="submit" id="send_message_button_main" value='${send_message_button}'/>
+            <!--<div id="messages_text_main">_</div>-->
+        </div>
+        <div id="tabs-2" channel_type="guild">
+            <input type="text" id="input_text_guild" placeholder='${messageinput_placeholder}'/>
+            <input type="submit" id="send_message_button_guild" value='${send_message_button}'/>
+            <!--<div id="messages_text_guild">_</div>-->
+        </div>
+        <div id="tabs-3" channel_type="whisper">
+            Welcome to the whisper chat channel<br/>
+            Stub at the moment
+        </div>
+    </div>
+</div>
+

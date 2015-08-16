@@ -6,10 +6,11 @@
 <tiles-definitions>
     <definition name="defaultTemplate" template="/WEB-INF/template/default/template.jspx">
         <put-attribute name="header" value="/WEB-INF/template/default/header.jspx" />
+        <!--<put-attribute name="body-2" value="/WEB-INF/views/multi-chat.jspx" />-->
         <put-attribute name="footer" value="/WEB-INF/template/default/footer.jspx" />
     </definition>
 
-    <definition name="index" extends="defaultTemplate" >
-        <put-attribute name="body"   value="/WEB-INF/views/index.jspx"/>
+    <definition name="multi-chat" extends="defaultTemplate" >
+        <put-attribute name="body"   value="/WEB-INF/views/multi-chat.jspx"/>
     </definition>
 </tiles-definitions>

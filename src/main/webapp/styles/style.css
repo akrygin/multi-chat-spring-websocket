@@ -119,9 +119,9 @@ div#mainWrapper {
   background-color:#dddddd;
   border:2px dashed #717dc9;
   min-width:800px;
-  height:70%;
-  min-height:600px;
-  text-align: center;
+  /*height:70%;*/
+  min-height:300px;
+  /*text-align: center;*/
 }
 div#footerWrapper {
   background-color:#F1C503;
@@ -153,3 +153,10 @@ form.login_form{
   margin: 0 auto;
   text-align: left;
 }
+
+#dialog label, #dialog input { display:block; }
+#dialog label { margin-top: 0.5em; }
+#dialog input, #dialog textarea { width: 95%; }
+#tabs { margin-top: 1em; }
+#tabs li .ui-icon-close { float: left; margin: 0.4em 0.2em 0 0; cursor: pointer; }
+#add_tab { cursor: pointer; }

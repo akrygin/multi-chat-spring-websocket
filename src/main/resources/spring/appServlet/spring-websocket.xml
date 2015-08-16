@@ -9,7 +9,7 @@
 
        <!--WebSocket Config-->
        <websocket:message-broker application-destination-prefix="/app">
-              <websocket:stomp-endpoint path="/chat/{channel}">
+              <websocket:stomp-endpoint path="/chat">
                      <websocket:sockjs/>
               </websocket:stomp-endpoint>
               <websocket:simple-broker prefix="/topic"/>
